@@ -34,6 +34,8 @@ for (var i = 0; i < pacientes.length; i++) {
         console.log (" peso invalido !");
         pesoEvalido = false;
         tdImc.textContent = "Peso Invalido";
+        paciente.style.color = "red";
+        paciente.style.backgroundColor = "red";
     }
     
     if (altura < 0 || altura > 3.00){
