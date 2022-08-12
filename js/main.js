@@ -24,7 +24,7 @@ for (var i = 0; i < pacientes.length; i++) {
     
     if (alturaEvalida && pesoEvalido){
     var imc = peso / (altura* altura);
-    console.log (imc);
+   
     }
     
     tdImc.textContent = imc.toFixed(2);
@@ -35,13 +35,15 @@ for (var i = 0; i < pacientes.length; i++) {
         pesoEvalido = false;
         tdImc.textContent = "Peso Invalido";
         paciente.style.color = "red";
-        paciente.style.backgroundColor = "red";
+        paciente.classList.add('paciente-invalido');
     }
     
     if (altura < 0 || altura > 3.00){
         console.log (" altura invalida !");
         alturaEvalido = false;
         tdImc.textContent = " Altura Invalida";
+        paciente.style.color = "red";
+       
     }
     
     
