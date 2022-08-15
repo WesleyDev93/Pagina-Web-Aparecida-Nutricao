@@ -3,7 +3,7 @@
  var tabela = document.querySelector ("table");
 
  pacientes.forEach(function(paciente){
-           paciente.addEventListener("dblclick", function(){
+           paciente.addEventListener("dblclick", function(event){
             event.target.parentNode.classList.add("fadeOut");
 
                   
@@ -13,4 +13,5 @@
                   },500);
                   
 
- });
+ })
+});
