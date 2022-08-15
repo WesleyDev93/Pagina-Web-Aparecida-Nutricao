@@ -12,8 +12,7 @@ var botaoAdicionar = document.querySelector ('#adicionar-paciente');
 
 
                if (erros.length > 0 ){
-                    var mensagemErro = document.querySelector ('#mensagem-erro');
-                    mensagemErro.textContent = erros;
+                    exibeMensagemErro();
                     return;
                }
 
@@ -31,6 +30,25 @@ var botaoAdicionar = document.querySelector ('#adicionar-paciente');
                 form.reset();
 
     });
+
+
+function exibeMensagemErro (erros){
+      var ul = document.querySelector ('#mensagem-erro');
+        ul.innerHTML = "";
+     erros.forEach(function (erro){
+        var li = document.createElement ('li');
+            li.textContent = erro;
+            ul.appendChild ("li");
+     })
+}
+
+
+
+
+
+
+
+
     
     function obtemPacienteDoFormulario (form){
 
@@ -94,11 +112,28 @@ function montaTd (dado, classe){
 
 function validaPaciente (paciente){
     var erros = [];
+
+    if (paciente.nome.length == 0){
+        erros.push ("nome é invalido ou esta em branco");
+       }
+
+
    if (!validaPeso(paciente.peso)){
     erros.push ("peso é invalido");
    }
    if (!validaAltura(paciente,altura)){
     erros.push("altura é invalida");
+   }
+
+   if (paciente.gordura.length == 0){
+    erros.push ("gordura é invalido ou esta em branco");
+   }
+
+   if (paciente.peso.length == 0){
+    erros.push ("peso é invalido ou esta em branco");
+   }
+   if (paciente.altura.length == 0){
+    erros.push ("altura é invalido ou esta em branco");
    }
    return erros;
 }
