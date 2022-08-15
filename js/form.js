@@ -3,8 +3,31 @@ var botaoAdicionar = document.querySelector ('#adicionar-paciente');
     botaoAdicionar.addEventListener ('click', function(event){
                 event.preventDefault();
                 var form = document.querySelector ('#form-adiciona');
+                var paciente = obtemPacienteDoFormulario(form);
+                
+                var pacienteTr = montaTr(paciente);
 
-                var nome = form.nome.value;
+                var tabela = document.querySelector ('#tabela-pacientes');
+
+                tabela.appendChild (pacienteTr);
+
+    });
+    
+    function obtemPacienteDoFormulario (form){
+
+        var paciente = {
+              nome: form.nome.value,
+              peso: form.peso.value,
+              altura: form.altura.value,
+              gordura: form.gordura.value,
+              imc: calculaImc(form.peso.value, form.altura.value)
+    }
+    return paciente;
+}
+
+function montaTr (paciente) {
+    var pacienteTr = document.createElement ('tr');
+    var nome = form.nome.value;
                 var peso = form.peso.value;
                 var altura = form.altura.value;
                 var gordura = form.gordura.value;
@@ -12,7 +35,7 @@ var botaoAdicionar = document.querySelector ('#adicionar-paciente');
                 console.log (nome);
                 console.log ('fui clicado')
 
-                var pacienteTr = document.createElement ('tr');
+                
 
                 var nomeTd = document.createElement ('td');
                 var pesoTd = document.createElement ('td');
@@ -21,11 +44,11 @@ var botaoAdicionar = document.querySelector ('#adicionar-paciente');
                 var imcTd = document.createElement ('td');
 
 
-                nomeTd.textContent = nome;
-                pesoTd.textContent = peso;
-                alturaTd.textContent = altura;
-                gorduraTd.textContent = gordura;
-                imcTd.textContent = calculaImc (peso,altura);
+                nomeTd.textContent = paciente.nome;
+                pesoTd.textContent = paciente.peso;
+                alturaTd.textContent = paciente.altura;
+                gorduraTd.textContent = paciente.gordura;
+                imcTd.textContent = paciente.imc;
 
 
                 pacienteTr.appendChild (nomeTd);
@@ -34,11 +57,6 @@ var botaoAdicionar = document.querySelector ('#adicionar-paciente');
                 pacienteTr.appendChild (gorduraTd);
                 pacienteTr.appendChild (imcTd);
 
+                return pacienteTr;
+}
 
-                var tabela = document.querySelector ('#tabela-pacientes');
-
-                tabela.appendChild (pacienteTr);
-
-    });
-    
-    
