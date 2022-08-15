@@ -28,7 +28,8 @@ var botaoAdicionar = document.querySelector ('#adicionar-paciente');
                 }
 
                 form.reset();
-
+              var mensagemDeErro= document.querySelector('#mensagem-erro');
+              mensagemDeErro.innerHTML = "";
     });
 
 
