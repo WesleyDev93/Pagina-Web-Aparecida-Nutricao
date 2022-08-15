@@ -42,16 +42,22 @@ for(var i = 0; i < pacientes.length ; i++){
 
     var botaoAdicionar = document.querySelector ('#adicionar-paciente');
 
-    botaoAdicionar.addEventListener ('click', function(){
+    botaoAdicionar.addEventListener ('click', function(event){
                 event.preventDefault();
+                var form = document.querySelector ('#form-adiciona');
+
+                var nome = form.nome.value;
+                var peso = form.peso.value;
+                var altura = form.altura.value;
+                var gordura = form.gordura.value;
+
+                console.log (nome);
                 console.log ('fui clicado')
+
+                var pacienteTr = document.createElement ('tr');
+                
+
     });
     
     
 
-var form = document.querySelector ('#form-adiciona');
-
-var nome = form.nome.value;
-var peso = form.peso.value;
-var altura = form.altura.value;
-var gordura = form.gordura.value;
